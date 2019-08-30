@@ -1,10 +1,10 @@
 const bundle = 'group.lamantin.library'
-const libraryName = 'react-native-custom-name'
+const libraryName = 'react-native-sheetmenu'
 const libraryNativeName = 'CustomNativeStuff'
 
 const path = require('path')
 const fs = require('fs')
-const replace = require('./replace-in-file')
+const replace = require('./replace-in-file/index')
 
 const files = [
   'example/.babelrc',

@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 
-import MyLibrary from 'react-native-library'
+import MyLibrary from 'react-native-sheetmenu'
 
 const Button = props => {
   return (<TouchableOpacity
