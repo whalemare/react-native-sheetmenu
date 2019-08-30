@@ -1,9 +1,9 @@
 {
-  "name": "react-native-sheetmenu",
+  "name": "@whalemare/react-native-sheetmenu",
   "version": "1.0.0",
   "author": "whalemare",
   "description": "Library for speedy implementation bottom menu with platform specific design",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/whalemare/react-native-sheetmenu.git"
@@ -55,5 +55,13 @@
     "react": "16.8.6",
     "react-native": "0.60.4",
     "typescript": "^3.4.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/whalemare/react-native-sheetmenu/issues"
+  },
+  "homepage": "https://github.com/whalemare/react-native-sheetmenu#readme",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {}
 }
