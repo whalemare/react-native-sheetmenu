@@ -1,5 +1,6 @@
 package ru.whalemare.rn.library
 
+import android.graphics.drawable.Drawable
 import android.util.Log
 import com.facebook.react.bridge.*
 import ru.whalemare.sheetmenu.ActionItem
@@ -23,11 +24,13 @@ class NativeLibrary(reactContext: ReactApplicationContext) : ReactContextBaseJav
   }
 
   @ReactMethod
-  fun show(config: ReadableMap?) {
+  fun show(config: ReadableMap?, onPress: Callback) {
     Log.d("NativeLibrary: show", config.toString())
     val title = config?.getString("title")
     val actions = config?.getArray("actions").toActionItems()
-    sheetMenu = SheetMenu(title, actions)
+    sheetMenu = SheetMenu(title, actions, onClick = { item ->
+      onPress(item.id)
+    })
     sheetMenu?.show(currentActivity!!)
   }
 
@@ -48,9 +51,25 @@ class NativeLibrary(reactContext: ReactApplicationContext) : ReactContextBaseJav
     return this?.toList()?.mapIndexed { index, item ->
       val map = item as Map<String, Any>
       val title = map["title"] as? String ?: ""
-      val image = map["image"] as? String ?: ""
-      ActionItem(index, title, null)
+      val iconName = map["iconName"] as? String
+      val image = if (iconName == null) null else iconByName(iconName)
+      ActionItem(index, title, image)
     } ?: emptyList()
+  }
+
+  fun iconByName(name: String): Drawable? {
+    val resources = reactApplicationContext.resources
+    val drawableResId = resources.getIdentifier(name, "drawable", reactApplicationContext.packageName)
+    if (drawableResId != 0) {
+      return resources.getDrawable(drawableResId)
+    }
+
+    val mipmapResId = resources.getIdentifier(name, "mipmap", reactApplicationContext.packageName)
+    if (mipmapResId != 0) {
+      return resources.getDrawable(mipmapResId)
+    }
+
+    return null
   }
 
 }

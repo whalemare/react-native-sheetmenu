@@ -57,8 +57,26 @@ const App = () => {
             text={"SheetMenu.show()"}
             onPress={async () => {
               const sheetMenu = new SheetMenu({
-                title: "Hello from RN",
-                actions: [{ title: "Action 1"}, { title: "Action 2"}, { title: "Action 3"}]
+                title: "Hello from React Native",
+                actions: [{ 
+                  title: "Do",
+                  iconName: "ic_check",
+                  onPress: () => {
+                    Alert.alert("Clicked Do")
+                  }
+                }, { 
+                  title: "Something",
+                  iconName: "ic_check",
+                  onPress: () => {
+                    Alert.alert("Clicked Something")
+                  }
+                }, { 
+                  title: "Nice",
+                  iconName: "ic_check",
+                  onPress: () => {
+                    Alert.alert("Clicked Nice")
+                  }
+                }]
               })
               sheetMenu.show()
             }}
