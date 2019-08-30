@@ -1,3 +1,4 @@
-import { MyLibrary } from './src/MyLibrary'
+import { Platform } from 'react-native'
+import { SheetMenu } from './src/SheetMenu'
 
-export default MyLibrary
+export default SheetMenu

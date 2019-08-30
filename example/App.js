@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 
-import MyLibrary from 'react-native-sheetmenu'
+import SheetMenu from 'react-native-sheetmenu'
 
 const Button = props => {
   return (<TouchableOpacity
@@ -54,25 +54,16 @@ const App = () => {
           )}
 
           <Button 
-            text={"MyLibrary.getParams()"}
+            text={"SheetMenu.show()"}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getParams()));
+              const sheetMenu = new SheetMenu({
+                title: "Hello from RN",
+                actions: [{ title: "Action 1"}, { title: "Action 2"}, { title: "Action 3"}]
+              })
+              sheetMenu.show()
             }}
           />
 
-          <Button 
-            text={"MyLibrary.getValue()"}
-            onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getValue()));
-            }}
-          />
-
-          <Button 
-            text={"MyLibrary.putValue(3)"}
-            onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.putValue(3)));
-            }}
-          />
         </ScrollView>
       </SafeAreaView>
     </View>
