@@ -1,5 +1,5 @@
 {
-  "name": "@whalemare/react-native-sheetmenu",
+  "name": "react-native-sheetmenu",
   "version": "1.0.0",
   "author": "whalemare",
   "description": "Library for speedy implementation bottom menu with platform specific design",
