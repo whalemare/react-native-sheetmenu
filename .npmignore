@@ -11,3 +11,8 @@ dist
 node_modules
 example
 scripts
+.idea
+.gradle
+.build
+local.properties
+ios
