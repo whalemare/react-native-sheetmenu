@@ -30,7 +30,6 @@ export class SheetMenu implements ISheetMenu {
   } 
 
   mapPropsToOptions(props: SheetMenuProps): ActionSheetIOSOptions {
-    const ios = props.ios || {}
     const options: ActionSheetIOSOptions = {
       options: props.actions.map(action => action.title),
       title: props.title,
