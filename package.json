@@ -1,6 +1,6 @@
 {
   "name": "react-native-sheetmenu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "whalemare",
   "description": "Library for speedy implementation bottom menu with platform specific design",
   "license": "Apache-2.0",
@@ -25,7 +25,6 @@
   "main": "index.ts",
   "types": "index.ts",
   "scripts": {
-    "prepublishOnly": "npm patch",
     "start": "react-native start",
     "install:deps": "npm install && cd example && npm install",
     "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm install && cd example && npm install",
