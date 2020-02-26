@@ -1,3 +1,5 @@
+export type ActionStyle = "cancel" | "destructive"
+
 export interface ActionItem {
   title: string
 
@@ -11,4 +13,6 @@ export interface ActionItem {
    * You should put your icons into _mipmap_ or _drawable_ folder
    */
   iconName?: string
+
+  style?: ActionStyle
 }

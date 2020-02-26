@@ -2,7 +2,7 @@ import { ISheetMenu } from './ISheetMenu';
 import React, { PureComponent } from 'react'
 import { NativeModules, Platform, ActionSheetIOS, ActionSheetIOSOptions } from 'react-native'
 import { SheetMenuProps } from './SheetMenuProps';
-import { ActionItem } from './ActionItem';
+import { ActionItem, ActionStyle } from './ActionItem';
 
 const { NativeLibrary } = NativeModules
 
@@ -34,8 +34,8 @@ export class SheetMenu implements ISheetMenu {
     const options: ActionSheetIOSOptions = {
       options: props.actions.map(action => action.title),
       title: props.title,
-      cancelButtonIndex: ios.cancelButtonIndex,
-      destructiveButtonIndex: ios.destructiveButtonIndex,
+      cancelButtonIndex: props.actions.findIndex(element => element.style === "cancel"),
+      destructiveButtonIndex: props.actions.findIndex(element => element.style === "destructive"),
     }
     return options
   }
