@@ -1,25 +1,27 @@
-import { ISheetMenu } from './ISheetMenu';
-import React, { PureComponent } from 'react'
-import { NativeModules, Platform, ActionSheetIOS, ActionSheetIOSOptions } from 'react-native'
+import { ActionSheetIOS, ActionSheetIOSOptions, NativeModules, Platform } from 'react-native';
 import { SheetMenuProps } from './SheetMenuProps';
-import { ActionItem, ActionStyle } from './ActionItem';
 
 const { NativeLibrary } = NativeModules
 
-export class SheetMenu implements ISheetMenu {
-  props: SheetMenuProps
+export class SheetMenu {
+  private props: SheetMenuProps
 
   constructor(props: SheetMenuProps) {
     this.props = props;
   }
 
-  callback = (index: number) => {
-    const action = this.props.actions[index]
-    if (action.onPress) {
-      action.onPress()
-    }
+  /**
+   * Create and show menu for user interactions
+   */
+  static show(props: SheetMenuProps) {
+    const sheetMenu = new SheetMenu(props)
+    sheetMenu.show()
+    return sheetMenu
   }
 
+  /**
+   * Show menu for user interactions
+   */
   show(): void {
     if (Platform.OS === 'android') {
       NativeLibrary.show(this.props, this.callback)
@@ -29,7 +31,21 @@ export class SheetMenu implements ISheetMenu {
     }
   } 
 
-  mapPropsToOptions(props: SheetMenuProps): ActionSheetIOSOptions {
+  /**
+   * Close all active menus
+   */
+  close(): void {
+    NativeLibrary.close()
+  }
+
+  private callback = (index: number) => {
+    const action = this.props.actions[index]
+    if (action.onPress) {
+      action.onPress()
+    }
+  }
+
+  private mapPropsToOptions(props: SheetMenuProps): ActionSheetIOSOptions {
     const options: ActionSheetIOSOptions = {
       options: props.actions.map(action => action.title),
       title: props.title,
@@ -37,9 +53,5 @@ export class SheetMenu implements ISheetMenu {
       destructiveButtonIndex: props.actions.findIndex(element => element.style === "destructive"),
     }
     return options
-  }
-  
-  close(): void {
-    throw new Error("Method not implemented.")
   }
 }

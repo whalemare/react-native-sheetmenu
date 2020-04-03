@@ -1,6 +1,9 @@
 export type ActionStyle = "cancel" | "destructive"
 
 export interface ActionItem {
+  /**
+   * Name of your action, that should be visible for user
+   */
   title: string
 
   /**
@@ -8,11 +11,16 @@ export interface ActionItem {
    */
   onPress?: () => void
 
-  /**
-   * Icon name without extension for *android only*
-   * You should put your icons into _mipmap_ or _drawable_ folder
-   */
-  iconName?: string
-
   style?: ActionStyle
+
+  /**
+   * Android specific properties
+   */
+  android?: {
+    /**
+     * Icon name without extension for *android only*
+     * You should put your icons into _mipmap_ or _drawable_ folder
+     */
+    iconName?: string
+  }
 }

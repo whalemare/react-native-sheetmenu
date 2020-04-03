@@ -46,7 +46,7 @@
     "prettier-eslint": "^9.0.0",
     "react": "16.8.6",
     "react-native": "0.60.4",
-    "typescript": "^3.8.2",
+    "typescript": "^3.8.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.1.0",
@@ -57,7 +57,9 @@
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-react-native": "^3.8.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "2.17.0",
+    "@typescript-eslint/parser": "2.17.0"
   },
   "bugs": {
     "url": "https://github.com/whalemare/react-native-sheetmenu/issues"

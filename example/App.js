@@ -30,15 +30,17 @@ import {
 import SheetMenu from 'react-native-sheetmenu'
 
 const Button = props => {
-  return (<TouchableOpacity
-    style={{
-      height: 100,
-      backgroundColor: '#f4f4f4',
-      alignItems: 'center',
-    }}
-    onPress={props.onPress}>
-    <Text>{props.text}</Text>
-  </TouchableOpacity>)
+  return (
+    <TouchableOpacity
+      style={{
+        height: 100,
+        backgroundColor: '#f4f4f4',
+        alignItems: 'center',
+      }}
+      onPress={props.onPress}>
+      <Text>{props.text}</Text>
+    </TouchableOpacity>
+  )
 }
 
 const App = () => {
@@ -46,36 +48,42 @@ const App = () => {
     <View>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-
-          <Button 
-            text={"SheetMenu.show()"}
-            onPress={async () => {
-              const sheetMenu = new SheetMenu({
-                title: "Hello from React Native",
-                actions: [{ 
-                  title: "Do",
-                  iconName: "ic_check",
+        <Button
+          text={'SheetMenu.show()'}
+          onPress={async () => {
+            SheetMenu.show({
+              title: 'Hello from React Native',
+              actions: [
+                {
+                  title: 'Do',
                   onPress: () => {
-                    Alert.alert("Clicked Do")
-                  }
-                }, { 
-                  title: "Something",
-                  iconName: "ic_check",
+                    Alert.alert('Clicked Do')
+                  },
+                  android: {
+                    iconName: 'ic_check',
+                  },
+                },
+                {
+                  title: 'Something',
+                  android: {
+                    iconName: 'ic_check',
+                  },
                   onPress: () => {
-                    Alert.alert("Clicked Something")
-                  }
-                }, { 
-                  title: "Nice",
-                  iconName: "ic_check",
+                    Alert.alert('Clicked Something')
+                  },
+                },
+                {
+                  android: {
+                    iconName: 'ic_check',
+                  },
                   onPress: () => {
-                    Alert.alert("Clicked Nice")
-                  }
-                }]
-              })
-              sheetMenu.show()
-            }}
-          />
-
+                    Alert.alert('Clicked Nice')
+                  },
+                },
+              ],
+            })
+          }}
+        />
       </SafeAreaView>
     </View>
   )
