@@ -5,23 +5,13 @@ import android.util.Log
 import com.facebook.react.bridge.*
 import ru.whalemare.sheetmenu.ActionItem
 import ru.whalemare.sheetmenu.SheetMenu
-import java.util.*
 
 class NativeLibrary(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
   // With this name your library will be available from ReactNative
   override fun getName() = this.javaClass.simpleName
 
-  var sheetMenu: SheetMenu? = null
-
-  override fun getConstants(): Map<String, Any> {
-    // Export any constants to be used in your native module
-    // https://facebook.github.io/react-native/docs/native-modules-android.html#the-toast-module
-    val constants = HashMap<String, Any>()
-    constants["EXAMPLE_CONSTANT"] = "example"
-
-    return constants
-  }
+  private var sheetMenu: SheetMenu? = null
 
   @ReactMethod
   fun show(config: ReadableMap?, onPress: Callback) {

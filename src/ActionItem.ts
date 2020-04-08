@@ -1,4 +1,4 @@
-export type ActionStyle = "cancel" | "destructive"
+export type ActionStyle = 'cancel' | 'destructive'
 
 export interface ActionItem {
   /**

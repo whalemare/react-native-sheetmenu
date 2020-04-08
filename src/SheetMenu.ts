@@ -1,5 +1,5 @@
-import { ActionSheetIOS, ActionSheetIOSOptions, NativeModules, Platform } from 'react-native';
-import { SheetMenuProps } from './SheetMenuProps';
+import { ActionSheetIOS, ActionSheetIOSOptions, NativeModules, Platform } from 'react-native'
+import { SheetMenuProps } from './SheetMenuProps'
 
 const { NativeLibrary } = NativeModules
 
@@ -7,7 +7,7 @@ export class SheetMenu {
   private props: SheetMenuProps
 
   constructor(props: SheetMenuProps) {
-    this.props = props;
+    this.props = props
   }
 
   /**
@@ -29,7 +29,7 @@ export class SheetMenu {
       const options = this.mapPropsToOptions(this.props)
       ActionSheetIOS.showActionSheetWithOptions(options, this.callback)
     }
-  } 
+  }
 
   /**
    * Close all active menus
@@ -49,8 +49,8 @@ export class SheetMenu {
     const options: ActionSheetIOSOptions = {
       options: props.actions.map(action => action.title),
       title: props.title,
-      cancelButtonIndex: props.actions.findIndex(element => element.style === "cancel"),
-      destructiveButtonIndex: props.actions.findIndex(element => element.style === "destructive"),
+      cancelButtonIndex: props.actions.findIndex(element => element.style === 'cancel'),
+      destructiveButtonIndex: props.actions.findIndex(element => element.style === 'destructive'),
     }
     return options
   }
