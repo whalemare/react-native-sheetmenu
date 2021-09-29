@@ -1,4 +1,4 @@
-package ru.whalemare.rn.library
+package ru.whalemare.sheetmenu.library
 
 /*
   ArrayUtil exposes a set of helper methods for working with

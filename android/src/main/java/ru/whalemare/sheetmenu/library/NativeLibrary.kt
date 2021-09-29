@@ -1,4 +1,4 @@
-package ru.whalemare.rn.library
+package ru.whalemare.sheetmenu.library
 
 import android.graphics.drawable.Drawable
 import android.util.Log

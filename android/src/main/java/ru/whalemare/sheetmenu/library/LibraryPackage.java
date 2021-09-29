@@ -1,5 +1,5 @@
 
-package ru.whalemare.rn.library;
+package ru.whalemare.sheetmenu.library;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
